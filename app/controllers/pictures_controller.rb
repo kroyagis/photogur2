@@ -33,6 +33,12 @@ class PicturesController < ApplicationController
       render :edit
     end
   end
+
+  def destroy
+    @picture = Picture.find(params[:id])
+    @picture.destroy
+    redirect_to pictures_url
+  end
     # render text: "Saving a picture. URL: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
   private
   def picture_params
